@@ -1,0 +1,25 @@
+# Environment variables
+.env
+
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Parquet files
+*.parquet
+
+# Data folders
+raw/
+transformed/
+
+# VS Code
+.vscode/
+
+# Virtual environments
+venv/
+.venv/

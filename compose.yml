@@ -1,0 +1,27 @@
+services:
+
+  mysql:
+    image: mysql:8
+
+    environment:
+      MYSQL_ROOT_PASSWORD: SAGAR123
+      MYSQL_DATABASE: nasa_neo
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  etl:
+    build: .
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app/etl
+
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+
