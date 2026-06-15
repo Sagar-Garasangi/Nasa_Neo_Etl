@@ -26,4 +26,6 @@ def extract(url,record,st_date,end_date,api):
 
 extract(url,"near_earth_objects","2026-06-11","2026-06-11",api_key)
 df_data=pd.json_normalize(df)
+df_data.to_parquet("Nasa.parquet")
+print("Nasa.parquet saved")
 print(df_data.info())
