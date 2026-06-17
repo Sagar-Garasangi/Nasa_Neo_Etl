@@ -85,26 +85,12 @@ def load_data(asteroid_path, close_approach_path):
         "orbiting_body"
     ]
     ]
-    close_approach_df["velocity_kph"] = pd.to_numeric(
-    close_approach_df["velocity_kph"]
-    )
-
-    close_approach_df["miss_distance_km"] = pd.to_numeric(
-    close_approach_df["miss_distance_km"]
-    )
+    
 
     approach_data = list(
         close_approach_df.itertuples(index=False, name=None)
     )
-    print(close_approach_df.dtypes)
-
-    print(close_approach_df.columns.tolist())
-
-    print(approach_data[0])
-
-    for i, value in enumerate(approach_data[0]):
-        print(i, value, type(value))
-
+    
 
     cursor.executemany(
         approach_sql,
