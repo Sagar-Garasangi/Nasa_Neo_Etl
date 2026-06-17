@@ -50,7 +50,7 @@ df_close_approach_normalize=df_close_approach_normalize.rename(
 )
 
 df_close_approach_main=pd.concat([df_closed_approach_parent.reset_index(drop=True),df_close_approach_normalize.reset_index(drop=True)],axis=1)
-df_close_approach_main.to_parquet("close_approach.parquet")
+
 df_close_approach_main["velocity_kph"] = pd.to_numeric(
     df_close_approach_main["velocity_kph"]
 )
@@ -67,6 +67,8 @@ df_close_approach_main = df_close_approach_main[
         "orbiting_body"
     ]
 ]
+path="close_approach.parquet"
+df_close_approach_main.to_parquet("close_approach.parquet")
 print(df_close_approach_main.dtypes)
 print(df_close_approach_main.columns)
 print("Extract successfull")
